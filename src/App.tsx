@@ -1,13 +1,19 @@
-import { Button } from './components/Button';
-import type { ButtonVariant, ButtonSize } from './components/ButtonProps';
+import { useState } from 'react';
+import { Button } from './components/Button/Button.tsx';
+import { TimePicker } from './components/TimePicker/TimePicker.tsx';
+import type { ButtonVariant, ButtonSize } from './components/Button/ButtonProps.ts';
 import styles from './App.module.css';
 
 const VARIANTS: ButtonVariant[] = ['fill', 'outline', 'text'];
 const SIZES: ButtonSize[] = ['S', 'M', 'L'];
 
 function App() {
+  const [time, setTime] = useState('09:30');
+
   return (
     <div className={styles.page}>
+
+      <h2 className={styles.heading}>Button</h2>
       <table className={styles.table}>
         <thead>
           <tr>
@@ -34,6 +40,27 @@ function App() {
           )}
         </tbody>
       </table>
+
+      <h2 className={styles.heading}>TimePicker</h2>
+      <table className={styles.table}>
+        <thead>
+          <tr>
+            <th>size</th>
+            <th>default</th>
+            <th>disabled</th>
+          </tr>
+        </thead>
+        <tbody>
+          {SIZES.map(size => (
+            <tr key={size}>
+              <td className={styles.cellSize}>{size}</td>
+              <td><TimePicker size={size} value={time} onChange={setTime} /></td>
+              <td><TimePicker size={size} value="12:00" disabled /></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
     </div>
   );
 }

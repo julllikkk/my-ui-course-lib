@@ -1,4 +1,4 @@
-import type { ButtonProps } from './ButtonProps';
+import type { ButtonProps } from './ButtonProps.ts';
 import styles from './Button.module.css';
 
 export function Button({ variant, size, className, children, ...rest }: ButtonProps) {

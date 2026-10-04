@@ -21,6 +21,13 @@
   border: 1px solid #DDE0E5;
 }
 
+.heading {
+  font-size: 16px;
+  font-weight: 600;
+  color: #25262B;
+  margin: 32px 0 12px;
+}
+
 .cellVariant {
   color: #25262B;
   font-size: 13px;
