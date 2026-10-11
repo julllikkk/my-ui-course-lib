@@ -31,3 +31,10 @@
   font-weight: 400;
   font-size: 13px;
 }
+
+.sectionTitle {
+  margin: 32px 0 12px;
+  color: #25262B;
+  font-size: 16px;
+  font-weight: 600;
+}
