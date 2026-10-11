@@ -1,5 +1,5 @@
-import { Tag } from './components/Tag/Tag.tsx';
-import type { TagVariant, TagSize } from './components/Tag/TagProps.ts';
+import { Tag } from './components/Tag';
+import type { TagVariant, TagSize } from './components/TagProps';
 import styles from './App.module.css';
 
 const VARIANTS: TagVariant[] = ['fill', 'outline', 'text'];
