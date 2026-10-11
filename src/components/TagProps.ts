@@ -4,8 +4,8 @@ export type TagVariant = 'fill' | 'outline' | 'text';
 export type TagSize = 'S' | 'M' | 'L';
 
 type Base = {
-  variant: TagVariant;
-  size: TagSize;
+  variant?: TagVariant;
+  size?: TagSize;
 };
 
 export type TagProps =

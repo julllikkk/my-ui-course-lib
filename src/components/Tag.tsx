@@ -2,7 +2,7 @@ import type { TagProps } from './TagProps.ts';
 import styles from './Tag.module.css';
 
 export function Tag(props: TagProps) {
-  const { variant, size, className } = props;
+  const { variant = 'fill', size = 'M', className } = props;
 
   const cls = [
     styles.tag,
@@ -29,7 +29,7 @@ export function Tag(props: TagProps) {
 
   const { as: _as, variant: _v, size: _s, className: _c, children, ...rest } = props;
   return (
-    <button className={cls} {...rest}>
+    <button type="button" className={cls} {...rest}>
       {children}
     </button>
   );
