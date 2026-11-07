@@ -1,7 +1,8 @@
-import { Button } from './components/Button';
-import type { ButtonVariant, ButtonSize } from './components/Button';
-import { ThemeContext } from './ThemeContext';
+import { Button } from './components/Button/Button.tsx';
+import type { ButtonVariant, ButtonSize } from './components/Button/Button.tsx';
+import { ThemeContext } from './Theme/ThemeContext.tsx';
 import styles from './App.module.css';
+import { CalendarDemo } from './CalendarDemo';
 
 const VARIANTS: ButtonVariant[] = ['fill', 'outline', 'text'];
 const SIZES: ButtonSize[] = ['S', 'M', 'L'];
@@ -9,7 +10,9 @@ const SIZES: ButtonSize[] = ['S', 'M', 'L'];
 export default function App() {
   return (
     <div className={styles.page}>
-
+      <CalendarDemo />
+      <details className={styles.previousExamples}>
+        <summary>Предыдущая домашняя работа: Button и токены</summary>
       <h2 className={styles.sectionTitle}>ThemeContext demo</h2>
       <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '32px' }}>
 
@@ -109,6 +112,7 @@ export default function App() {
         </tbody>
       </table>
 
+      </details>
     </div>
   );
 }

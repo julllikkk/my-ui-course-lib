@@ -1,5 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css';
-import { vars } from '../theme.css.ts';
+import { vars } from '../../Theme/theme.css.ts';
 
 type StateColors = {
   backgroundColor: string;
@@ -18,6 +18,7 @@ function stateSelectors(hover: StateColors, active: StateColors, disabled: State
 const base = style({
   boxSizing: 'border-box',
   display: 'inline-flex',
+  fontFamily: 'inherit',
   alignItems: 'center',
   justifyContent: 'center',
   fontWeight: 600,
@@ -124,24 +125,33 @@ export const buttonSizes = styleVariants({
     minHeight: vars.buttonSmallHeight,
     paddingTop: vars.buttonSmallPaddingY,
     paddingBottom: vars.buttonSmallPaddingY,
-    paddingLeft: vars.buttonSmallPaddingX,
-    paddingRight: vars.buttonSmallPaddingX,
+    paddingInline: vars.buttonSmallPaddingX,
     fontSize: vars.buttonSmallFontSize,
   },
   M: {
     minHeight: vars.buttonMediumHeight,
     paddingTop: vars.buttonMediumPaddingY,
     paddingBottom: vars.buttonMediumPaddingY,
-    paddingLeft: vars.buttonMediumPaddingX,
-    paddingRight: vars.buttonMediumPaddingX,
+    paddingInline: vars.buttonMediumPaddingX,
     fontSize: vars.buttonMediumFontSize,
   },
   L: {
     minHeight: vars.buttonLargeHeight,
     paddingTop: vars.buttonLargePaddingY,
     paddingBottom: vars.buttonLargePaddingY,
-    paddingLeft: vars.buttonLargePaddingX,
-    paddingRight: vars.buttonLargePaddingX,
+    paddingInline: vars.buttonLargePaddingX,
     fontSize: vars.buttonLargeFontSize,
   },
+});
+
+export const withIcon = style({
+  paddingInlineStart: vars.buttonIconPaddingStart,
+  paddingInlineEnd: vars.buttonIconPaddingEnd,
+});
+
+export const iconSlot = style({
+  display: 'inline-flex',
+  flexShrink: 0,
+  width: vars.buttonIconSize,
+  height: vars.buttonIconSize,
 });

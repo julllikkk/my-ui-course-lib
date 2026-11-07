@@ -1,5 +1,7 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { vars } from './theme.css.ts';
+import { ThemeContext as ThemeValueContext } from './theme-context.ts';
+import type { Theme } from './theme-context.ts';
 
 export type Tokens = Partial<{
   [K in keyof typeof vars]: string;
@@ -8,6 +10,20 @@ export type Tokens = Partial<{
 interface ThemeContextProps {
   tokens?: Tokens;
   children: ReactNode;
+}
+
+interface ThemeProviderProps extends ThemeContextProps {
+  theme: Theme;
+}
+
+export function ThemeProvider({ theme, tokens, children }: ThemeProviderProps) {
+  return (
+    <ThemeValueContext.Provider value={theme}>
+      <div data-theme={theme}>
+        <ThemeContext tokens={tokens}>{children}</ThemeContext>
+      </div>
+    </ThemeValueContext.Provider>
+  );
 }
 
 export function ThemeContext({ tokens, children }: ThemeContextProps) {

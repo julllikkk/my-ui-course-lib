@@ -16,6 +16,7 @@ storybook-static/
 .parcel-cache/
 .turbo/
 .vite/
+.tmp/
 
 # Env files
 .env

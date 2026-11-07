@@ -3,6 +3,36 @@
   color: #686B73;
   font-size: 12px;
   font-weight: 600;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding: 40px 24px;
+}
+
+.calendarDemo { margin-block-end: 40px; }
+.eyebrow { color: #92929D; font-size: 11px; letter-spacing: 1.5px; }
+.demoTitle { margin-block: 12px 8px; color: #18181B; font-size: 40px; letter-spacing: -1.5px; }
+.description { margin-block: 0 24px; font-size: 15px; font-weight: 400; }
+.controls { display: flex; align-items: center; flex-wrap: wrap; gap: 16px; padding-block: 16px; border-block: 1px solid #E4E4E7; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls input[type='date'] { font: inherit; color: #18181B; border: 1px solid #D4D4D8; border-radius: 6px; padding: 8px; background: white; }
+.checkboxLabel { cursor: pointer; }
+.demoStatus { display: flex; flex-wrap: wrap; gap: 16px; margin-block: 16px 24px; font-weight: 400; }
+.calendarGallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 28px 24px; }
+.cardLabel { margin-block: 0 10px; font-size: 12px; font-weight: 400; color: #92929D; }
+.keyboardHint { margin-block: 24px; font-size: 12px; line-height: 1.8; font-weight: 400; }
+.stateGallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 16px; }
+.statePanel { width: 100%; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+.stateExample { display: flex; flex-direction: column; align-items: center; gap: 12px; font-size: 11px; }
+.previousExamples { overflow-x: auto; border-block-start: 1px solid #E4E4E7; padding-block-start: 24px; }
+.previousExamples summary { cursor: pointer; font-size: 14px; }
+
+@media (max-width: 1050px) {
+  .calendarGallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+  .page { padding: 24px 12px; }
+  .calendarGallery { grid-template-columns: minmax(0, 1fr); }
+  .stateGallery { grid-template-columns: minmax(0, 1fr); }
 }
 
 .table {

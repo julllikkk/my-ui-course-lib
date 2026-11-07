@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes, AnchorHTMLAttributes, Ref } from 'react';
-import { buttonVariants, buttonSizes } from './Button.css.ts';
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes, Ref, ReactNode } from 'react';
+import { buttonVariants, buttonSizes, withIcon, iconSlot } from './Button.css.ts';
 
 export type ButtonVariant = 'fill' | 'outline' | 'text';
 export type ButtonSize = 'S' | 'M' | 'L';
@@ -7,6 +7,7 @@ export type ButtonSize = 'S' | 'M' | 'L';
 type Base = {
   variant?: ButtonVariant;
   size?: ButtonSize;
+  icon?: ReactNode;
 };
 
 export type ButtonProps =
@@ -14,14 +15,14 @@ export type ButtonProps =
   | (Base & AnchorHTMLAttributes<HTMLAnchorElement> & { as: 'a'; disabled?: boolean; ref?: Ref<HTMLAnchorElement> });
 
 export function Button(props: ButtonProps) {
-  const { variant = 'fill', size = 'M', className } = props;
+  const { variant = 'fill', size = 'M', className, icon } = props;
 
-  const cls = [buttonVariants[variant], buttonSizes[size], className]
+  const cls = [buttonVariants[variant], buttonSizes[size], icon && withIcon, className]
     .filter(Boolean)
     .join(' ');
 
   if (props.as === 'a') {
-    const { as: _as, variant: _v, size: _s, className: _c, children, disabled, onClick, ...rest } = props;
+    const { as: _as, variant: _v, size: _s, className: _c, icon: _i, children, disabled, onClick, ...rest } = props;
     return (
       <a
         className={cls}
@@ -29,14 +30,16 @@ export function Button(props: ButtonProps) {
         onClick={disabled ? (e) => e.preventDefault() : onClick}
         {...rest}
       >
+        {icon && <span className={iconSlot} aria-hidden="true">{icon}</span>}
         {children}
       </a>
     );
   }
 
-  const { as: _as, variant: _v, size: _s, className: _c, children, ...rest } = props;
+  const { as: _as, variant: _v, size: _s, className: _c, icon: _i, children, ...rest } = props;
   return (
     <button type="button" className={cls} {...rest}>
+      {icon && <span className={iconSlot} aria-hidden="true">{icon}</span>}
       {children}
     </button>
   );
